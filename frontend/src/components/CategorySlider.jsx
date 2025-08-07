@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -49,20 +50,24 @@ const CategoryCarousel = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className='d-flex align-items-center'><h4 className="fw-bold mb-4 me-5">Shop By Category</h4>
-      <span className='ms-5 text-secondary'>Swipe <BsArrowRight/></span></div>
-      <Slider {...settings}>
-        {categories.map((item, index) => (
-          <div key={index} className="text-center px-2" onClick={() => handleClick(categories.name)} style={{ cursor: 'pointer' }}>
-            <div className="rounded overflow-hidden mb-2">
-              <img src={item.img} alt={item.name} className="img-fluid rounded shadow-sm" style={{ height: "140px", objectFit: "cover", width: "100%" }} />
-            </div>
-            <p className="fw-semibold">{item.name}</p>
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <>
+      <Container>
+        <div className="container mt-5">
+          <div className='d-flex align-items-center'><h4 className="fw-bold mb-4 me-5">Shop By Category</h4>
+          <span className='ms-5 text-secondary'>Swipe <BsArrowRight/></span></div>
+          <Slider {...settings}>
+            {categories.map((item, index) => (
+              <div key={index} className="text-center px-2" onClick={() => handleClick(categories.name)} style={{ cursor: 'pointer' }}>
+                <div className="rounded overflow-hidden mb-2">
+                  <img src={item.img} alt={item.name} className="img-fluid rounded shadow-sm" style={{ height: "140px", objectFit: "cover", width: "100%" }} />
+                </div>
+                <p className="fw-semibold">{item.name}</p>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </Container>
+    </>
   );
 };
 
