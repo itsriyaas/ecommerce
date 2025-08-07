@@ -14,7 +14,7 @@ const GenderExclusiveBanner = () => {
           <div className="overlay-text ms-5">
             <p className="text-muted mb-0">NEW YEAR</p>
             <h1 className="display-1 text-dark fw-bold opacity-10">20</h1>
-            <button className="btn btn-outline-dark mt-3 ms-5">#WOMEN EXCLUSIVE</button>
+            <button className="btn btn-dark mt-3 ms-5">#WOMEN EXCLUSIVE</button>
           </div>
         </div>
 
@@ -28,7 +28,7 @@ const GenderExclusiveBanner = () => {
           <div className="overlay-text ms-5">
             <p className="text-muted mb-0">EXCLUSIVE</p>
             <h1 className="display-1 text-secondary fw-bold opacity-10">25</h1>
-            <button className="btn btn-outline-dark mt-3 ms-2">#MEN EXCLUSIVE</button>
+            <button className="btn btn-dark mt-3 ms-2">#MEN EXCLUSIVE</button>
           </div>
         </div>
       </div>
