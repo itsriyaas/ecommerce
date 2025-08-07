@@ -5,44 +5,27 @@
 }
 /* Promo grid*/
 .promo-card {
-  position: relative;
+  height: 100%;
   overflow: hidden;
+  position: relative;
   border-radius: 8px;
 }
 
 .promo-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  display: block;
   border-radius: 8px;
 }
 
 .promo-text {
   position: absolute;
-  top: 15%;
-  left: 10%;
-  color: #fff;
-  text-align: left;
+  bottom: 10px;
+  left: 15px;
+  color: white;
 }
 
-.promo-text.small {
-  top: 20%;
-}
-
-.promo-text p {
-  font-style: italic;
-  font-size: 14px;
-  margin: 0;
-}
-
-.promo-text h2, .promo-text h4 {
-  font-weight: bold;
-  margin: 5px 0;
-}
-
-.promo-text span {
-  font-size: 12px;
-}
 
 /* Optional Background Tint (if needed) */
 /*

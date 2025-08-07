@@ -12,9 +12,8 @@ const PromoGrid = () => {
   return (
     <Container fluid className="mt-5 px-3 promo-grid">
       <Row className="g-3">
-
         <Col md={6}>
-          <div className="promo-card orange" onClick={() => handleClick('mens-shirts')} style={{ cursor: 'pointer' }}>
+          <div className="promo-card orange " onClick={() => handleClick('mens-shirts')} style={{ cursor: 'pointer' }}>
             <img src="https://chawkbazar.redq.io/_next/image?url=%2Fassets%2Fimages%2Fbanner%2Fmasonry%2Fbanner-1.jpg&w=1920&q=100" alt="Men" />
           </div>
         </Col>
