@@ -76,16 +76,6 @@ const ProductsPage = () => {
           <h5 className="mb-3">Filters</h5>
     
           <Form.Group className="mb-3">
-            <Form.Label>Search</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Search products"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-            />
-          </Form.Group>
-    
-          <Form.Group className="mb-3">
             <Form.Label>Category</Form.Label>
             {uniqueCategories.map((cat, idx) => (
               <Form.Check
@@ -142,6 +132,15 @@ const ProductsPage = () => {
             <BsFilter /> Filters
           </Button>
         </Col>
+        <Form.Group className="mb-3 mt-5">
+            <Form.Label>Search</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Search products"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+            />
+          </Form.Group>
 
         {/* Filters Sidebar - Only Visible on Desktop */}
         <Col md={3} className="d-none d-md-block">

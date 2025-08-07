@@ -1,44 +1,35 @@
-import { Nav, Badge } from 'react-bootstrap';
-import { BsHeart, BsBag } from 'react-icons/bs';
+import React from 'react';
+import { Nav, Badge, Container } from 'react-bootstrap';
+import { BsBag, BsHeart, BsPerson } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const BottomNavbar = ({ cartItems }) => {
+const MobileBottomNav = ({ onProfileClick }) => {
+  const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart?.items || []);
+
   return (
-    <Nav
-      className="d-flex justify-content-around align-items-center fixed-bottom bg-light border-top py-2 d-md-none"
-      style={{ zIndex: 1030 }}
-    >
-      {/* Wishlist Icon */}
-      <Nav.Link>
-        <BsHeart size={24} />
-      </Nav.Link>
-
-      {/* Cart Icon with Badge */}
-      <Nav.Link className="position-relative">
-        <BsBag size={24} />
-        {cartItems.length > 0 && (
-          <Badge
-            bg="dark"
-            pill
-            className="position-absolute top-0 start-100 translate-middle"
-            style={{ fontSize: '0.6rem' }}
-          >
-            {cartItems.length}
-          </Badge>
-        )}
-      </Nav.Link>
-
-      {/* User Icon */}
-      <Nav.Link>
-        <img
-          src="assets/user-placeholder.png"
-          alt="user"
-          className="rounded-circle"
-          width="28"
-          height="28"
-        />
-      </Nav.Link>
-    </Nav>
+    <Container>
+        <Nav className="mobile-bottom-nav d-flex justify-content-around align-items-center d-md-none">
+          <Nav.Link onClick={() => navigate('/wishlist')}>
+            <BsHeart size={22} />
+          </Nav.Link>
+    
+          <Nav.Link onClick={() => navigate('/cart')} className="position-relative">
+            <BsBag size={22} />
+            {cartItems.length > 0 && (
+              <Badge pill bg="dark" className="position-absolute top-0 start-100 translate-middle">
+                {cartItems.length}
+              </Badge>
+            )}
+          </Nav.Link>
+    
+          <Nav.Link onClick={onProfileClick}>
+            <BsPerson size={22} />
+          </Nav.Link>
+        </Nav>
+    </Container>
   );
 };
 
-export default BottomNavbar;
+export default MobileBottomNav;

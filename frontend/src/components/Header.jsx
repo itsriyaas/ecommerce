@@ -48,31 +48,35 @@ const Header = () => {
             </Nav>
   
             {/* Right Icons */}
-            <Nav className="align-items-center gap-3 flex-nowrap overflow-auto" style={{ whiteSpace: 'nowrap' }}>
-              <Nav.Link>
-                <BsHeart size={25} />
-              </Nav.Link>
-              <Nav.Link className="position-relative" as={Link} to="/cart" onClick={() => setExpanded(false)}>
-                <BsBag size={25} />
-                {cartItems.length > 0 && (
-                  <Badge bg="dark" pill className="position-absolute top-10 start-100 translate-middle">
-                    {cartItems.length}
-                  </Badge>
-                )}
-              </Nav.Link>
-              <Nav.Link onClick={() => {
-                setShowAuthModal(true);
-                setExpanded(false);
-              }}>
-                <img
-                  src="assets/user-placeholder.png"
-                  alt="user"
-                  className="rounded-circle"
-                  width="32"
-                  height="32"
-                />
-              </Nav.Link>
-            </Nav>
+           <Nav
+  className="align-items-center gap-3 flex-nowrap overflow-auto d-md-flex d-none"
+  style={{ whiteSpace: 'nowrap' }}
+>
+  <Nav.Link as={Link} to="/wishlist" onClick={() => setExpanded(false)}>
+    <BsHeart size={25} />
+  </Nav.Link>
+  <Nav.Link className="position-relative" as={Link} to="/cart" onClick={() => setExpanded(false)}>
+    <BsBag size={25} />
+    {cartItems.length > 0 && (
+      <Badge bg="dark" pill className="position-absolute top-10 start-100 translate-middle">
+        {cartItems.length}
+      </Badge>
+    )}
+  </Nav.Link>
+  <Nav.Link onClick={() => {
+    setShowAuthModal(true);
+    setExpanded(false);
+  }}>
+    <img
+      src="assets/user-placeholder.png"
+      alt="user"
+      className="rounded-circle"
+      width="32"
+      height="32"
+    />
+  </Nav.Link>
+</Nav>
+
           </Navbar.Collapse>
         </Container>
   
