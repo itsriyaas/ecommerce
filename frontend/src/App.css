@@ -60,17 +60,28 @@ footer h6 {
   font-size: 16px;
 }
 /* Header */
-.dropdown-item {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #333;
-  text-decoration: none;
-  transition: background 0.2s;
+.tabs .nav-link {
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
 }
 
-.dropdown-item:hover {
-  background-color: #f8f9fa;
+.tabs .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #000;
+  transition: width 0.3s ease;
 }
+
+.tabs .nav-link:hover::after,
+.tabs .nav-link.active::after {
+  width: 100%;
+}
+
 /* Exclusive */
 .overlay-text {
   position: absolute;

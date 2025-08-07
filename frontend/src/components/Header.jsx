@@ -39,7 +39,7 @@ const Header = () => {
           {/* Collapse content */}
           <Navbar.Collapse id="main-navbar" className="justify-content-between">
             {/* Center Nav */}
-            <Nav className="mx-auto gap-1 text-dark">
+            <Nav className="tabs mx-auto gap-1 text-dark">
               <Nav.Link onClick={() => handleClick('mens-shirts')}>Men Wear</Nav.Link>
               <Nav.Link onClick={() => handleClick('womens-dresses')}>Women Wear</Nav.Link>
               <Nav.Link onClick={() => handleClick('mens-shirts')}>Casual Wear</Nav.Link>
