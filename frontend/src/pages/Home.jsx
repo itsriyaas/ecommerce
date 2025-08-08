@@ -1,4 +1,3 @@
-import React from 'react'
 import BannerCarousel from '../components/Banner'
 import PromoGrid from '../components/PromoGrid'
 import FlashSale from '../components/FlashSale'

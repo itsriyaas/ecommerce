@@ -11,7 +11,7 @@ const Header = () => {
   const [expanded, setExpanded] = useState(false); // <-- control navbar open/close
 
   const cartItems = useSelector((state) => state.cart?.items || []);
-
+  const wishlistItems = useSelector(state => state.wishlist?.items || []);
   const handleClick = (category) => {
     navigate(`/all-products?category=${category}`);
     setExpanded(false); // <-- collapse menu after click
@@ -30,7 +30,7 @@ const Header = () => {
         <Container fluid className="px-3">
           {/* Logo */}
           <Navbar.Brand as={Link} to="/" className="fw-bold text-uppercase">
-            MAYURI <span className="fw-light fs-6">Fashion</span>
+            Mayukha <span className="fw-light fs-6">Fashion</span>
           </Navbar.Brand>
   
           {/* Toggle */}
@@ -40,11 +40,11 @@ const Header = () => {
           <Navbar.Collapse id="main-navbar" className="justify-content-between">
             {/* Center Nav */}
             <Nav className="tabs mx-auto gap-1 text-dark">
-              <Nav.Link onClick={() => handleClick('mens-shirts')}>Men Wear</Nav.Link>
-              <Nav.Link onClick={() => handleClick('womens-dresses')}>Women Wear</Nav.Link>
-              <Nav.Link onClick={() => handleClick('mens-shirts')}>Casual Wear</Nav.Link>
-              <Nav.Link onClick={() => handleClick('mens-shirts')}>Kids Wear</Nav.Link>
-              <Nav.Link as={Link} to="/allproducts" onClick={() => setExpanded(false)}>Search</Nav.Link>
+              <Nav.Link onClick={() => handleClick('mens-shirts')}>Offer Items</Nav.Link>
+              <Nav.Link onClick={() => handleClick('womens-dresses')}>Kurthees</Nav.Link>
+              <Nav.Link onClick={() => handleClick('mens-shirts')}>Silk Sarees</Nav.Link>
+              <Nav.Link onClick={() => handleClick('mens-shirts')}>Western Tops</Nav.Link>
+              <Nav.Link as={Link} to="/allproducts" onClick={() => setExpanded(false)}>New Arrivals</Nav.Link>
             </Nav>
   
             {/* Right Icons */}
@@ -54,6 +54,11 @@ const Header = () => {
 >
   <Nav.Link as={Link} to="/wishlist" onClick={() => setExpanded(false)}>
     <BsHeart size={25} />
+     {wishlistItems.length > 0 && (
+      <Badge bg="dark" pill className="position-absolute top-10 start-10 translate-middle">
+        {wishlistItems.length}
+      </Badge>
+    )}
   </Nav.Link>
   <Nav.Link className="position-relative" as={Link} to="/cart" onClick={() => setExpanded(false)}>
     <BsBag size={25} />

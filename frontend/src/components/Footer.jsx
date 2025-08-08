@@ -9,15 +9,15 @@ const Footer = () => {
         <Row className="text-start gy-4">
           <Col md={4} lg={2}>
             <h6 className="fw-bold mb-3">Social</h6>
-            <p className="mb-1"><FaFacebookF /> &nbsp;/MayuriFashion</p>
-            <p className="mb-1"><FaTwitter /> &nbsp;/MayuriFashion</p>
-            <p className="mb-1"><FaInstagram /> &nbsp;/MayuriFashion</p>
+            <p className="mb-1"><FaFacebookF /> &nbsp;/MayukhaFashion</p>
+            <p className="mb-1"><FaTwitter /> &nbsp;/MayukhaFashion</p>
+            <p className="mb-1"><FaInstagram /> &nbsp;/MayukhaFashion</p>
           </Col>
 
           <Col md={4} lg={2}>
             <h6 className="fw-bold mb-3">Contact</h6>
             <p className="mb-1">Contact Us</p>
-            <p className="mb-1">Website: <a href="" target="_blank" rel="noreferrer">https://mayuri.fashion</a></p>
+            <p className="mb-1">Website: <a href="" target="_blank" rel="noreferrer">https://Mayukha.fashion</a></p>
           </Col>
 
           <Col md={4} lg={2}>
@@ -56,7 +56,7 @@ const Footer = () => {
           <Col>
             <hr />
             <p className="text-muted mb-3">
-              ©2025 <strong>MayuriFashion</strong>. Designed By <a href='' target='_blank' className='text-info'>Thea IT Solutions</a>. All rights reserved.
+              ©2025 <strong>MayukhaFashion</strong>. Designed By <a href='' target='_blank' className='text-info'>Thea IT Solutions</a>. All rights reserved.
             </p>
           </Col>
         </Row>

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Spinner, Image, Button, Toast, ToastContainer, Form } from 'react-bootstrap';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import styled from 'styled-components';
 import { BiPurchaseTag } from 'react-icons/bi';
 import { RiShoppingCart2Line } from 'react-icons/ri';
+import { addToWishlist, removeFromWishlist } from '../../redux/wishlistSlice';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -19,7 +20,6 @@ const [pincode, setPincode] = useState('');
 const [deliveryDate, setDeliveryDate] = useState('');
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [wishlist, setWishlist] = useState([]);
   const [recommended, setRecommended] = useState([]);
   const [showToast, setShowToast] = useState(false);
 
@@ -45,17 +45,6 @@ const [deliveryDate, setDeliveryDate] = useState('');
 }, [id]);
 
 
-  // Load wishlist from localStorage
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem('wishlist')) || [];
-    setWishlist(stored);
-  }, []);
-
-  // Save wishlist to localStorage on change
-  useEffect(() => {
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-  }, [wishlist]);
-
   const handleAddToCart = () => {
     dispatch(addToCart(product));
     setShowToast(true);
@@ -65,14 +54,17 @@ const [deliveryDate, setDeliveryDate] = useState('');
     alert(`Proceeding to buy "${product.title}"`);
   };
 
-  const toggleWishlist = () => {
-    const updated = wishlist.includes(product.id)
-      ? wishlist.filter(pid => pid !== product.id)
-      : [...wishlist, product.id];
-    setWishlist(updated);
-  };
 
-  const isWishlisted = wishlist.includes(product?.id);
+const wishlist = useSelector(state => state.wishlist.items);
+const isWishlisted = wishlist.includes(product?.id);
+// Toggle wishlist
+const toggleWishlist = () => {
+  if (wishlist.includes(product.id)) {
+    dispatch(removeFromWishlist(product.id));
+  } else {
+    dispatch(addToWishlist(product.id));
+  }
+};
   // Handle review form submit
 const handleReviewSubmit = (e) => {
   e.preventDefault();
@@ -120,14 +112,15 @@ const handleCheckDelivery = () => {
         <Col md={6} className="position-relative">
           {/* Wishlist Icon */}
           <button
-            className="position-absolute top-0 end-0 m-3 btn btn-light rounded-circle shadow-sm"
-            onClick={toggleWishlist}
-          >
-            <i
-              className={`bi ${isWishlisted ? 'bi-heart-fill text-danger' : 'bi-heart'}`}
-              style={{ fontSize: '1.5rem' }}
-            ></i>
-          </button>
+  className="position-absolute top-0 end-0 m-3 btn btn-light rounded-circle shadow-sm"
+  onClick={toggleWishlist}
+>
+  <i
+    className={`bi ${isWishlisted ? 'bi-heart-fill text-danger' : 'bi-heart'}`}
+    style={{ fontSize: '1.5rem' }}
+  ></i>
+</button>
+
 
           {/* Main Image */}
           <Image src={product.thumbnail} fluid rounded />
